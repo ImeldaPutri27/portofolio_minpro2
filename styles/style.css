@@ -1,0 +1,557 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap");
+
+:root {
+  --primaryTextColor: #232e35; /* Untuk title atau judul */
+  --secondaryTextColor: #656d72; /* Untuk text biasa seperti paragraph contohnya */
+
+  --borderColor: #f1f1f1;
+  --lineColor: #d9d9d9; /* untuk line di pre-title */
+
+  --primaryBackgroundColor: #fff;
+  --secondaryBackgroundColor: #fbfbfb;
+  --thirdBackgroundColor: #f5f3fe;
+
+  --primaryIconColor: #7e74f1;
+  --primaryIconColorHover: #5d51e8;
+
+  --sectionPadding: 6rem 0;
+
+  --itemBorderRadius: 0.7rem;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+
+body {
+  font-family: "Roboto", sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+strong {
+  color: var(--primaryTextColor);
+}
+
+p {
+  font-size: 1rem; /* 16 px */
+  line-height: 1.9rem; /*30.4 px */
+}
+
+p,
+span,
+label,
+input,
+textarea,
+li {
+  color: var(--secondaryTextColor);
+}
+
+a {
+  text-decoration: none;
+}
+
+/* End Preparation */
+
+.main-container {
+  width: 1200px;
+  margin: 0 auto;
+}
+
+@media screen and (max-width: 1200px) {
+  .main-container {
+    width: 90%;
+  }
+}
+
+/* Buttons */
+.btn {
+  padding: 1rem 1.5rem;
+  background: white;
+  border: 1.5px solid var(--borderColor);
+  cursor: pointer;
+  transition: 0.2s ease-in-out;
+}
+
+.btn:hover {
+  box-shadow: rgba(0, 0, 0, 0.04) 0px 3px 5px;
+}
+
+/* Titles */
+.section-title {
+  margin: 1rem 0 4rem;
+  font-size: 2rem;
+}
+
+.pre-title {
+  text-transform: uppercase;
+  letter-spacing: 0.5rem;
+  color: var(--secondaryTextColor);
+  position: relative;
+  padding-left: 40px;
+  width: fit-content;
+  font-weight: 400;
+  font-size: 0.9rem;
+}
+
+.pre-title::before {
+  content: "";
+  width: 30px;
+  height: 1px;
+  background: var(--lineColor);
+  position: absolute;
+  display: block;
+  left: 0;
+  top: 50%;
+}
+
+/* Layouts */
+.grid-3 {
+  display: grid;
+  /* grid-template-columns: 1fr 1fr 1fr; use this first, use code below when its time for explaining responsive design part */
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 3rem;
+}
+
+/* Dark mode styles */
+.dark-mode {
+  background-color: #1f2937;
+  color: #f9fafb;
+
+  .pre-title{
+    color: #f0f0f0;
+  }
+}
+
+.dark-mode p{
+  color: #fff;
+}
+/* Light mode styles */
+.light-mode{
+  background-color: #FCE7F3; /* Pink muda */
+  color: #f9fafb; /* Warna teks diubah agar lebih kontras */
+}
+
+
+/* Center content horizontally */
+.center-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+/* --- Logo and Navigation Menu --- */
+/* .nav {
+  display: flex;
+  justify-content: space-between;
+  padding: 2rem 0;
+} */
+.nav {
+  display: flex;
+  justify-content: baseline; /* Membuat konten navbar berada di tengah secara horizontal */
+  align-items: center; /* Opsional: membuat konten navbar berada di tengah secara vertikal */
+  padding: 2rem 0;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 3rem;
+}
+
+/* Logo */
+.logo {
+  display: flex;
+  align-items: center;
+  font-weight: 700;
+  font-size: 2rem;
+}
+
+.logo a {
+  color: rgb(172, 47, 89);
+}
+
+/* Burger - Save for later on video */
+.burger div {
+  width: 25px;
+  height: 2px;
+  background-color: #000;
+  margin: 7px;
+  transition: all 0.3s;
+  z-index: 99;
+}
+
+.burger {
+  display: none;
+  z-index: 99;
+  position: fixed;
+  top: 33px;
+  right: 35px;
+}
+
+/* Hero Section */
+#hero {
+  height: 720px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  /* We're not going to use automatic template columns, because we need to know when the columns is go below. So we can exchange the order of the element */
+  align-items: center;
+  color: pink;
+}
+
+.hero-name {
+  font-size: 3rem;
+  font-weight: 700;
+  margin: 0.5rem 0 1rem;
+  color: pink;
+}
+
+.hero-name span {
+  color: palevioletred;
+}
+
+.hero-right img {
+  width: 90%;
+}
+
+.hero-right {
+  display: flex;
+  justify-content: center;
+}
+
+/* ========== ABOUT ME========== */
+
+.aboutme {
+  display: grid;
+  background: linear-gradient(to right, var(--warna5), var(--warna4));
+  width: 100%;
+  height: 100vh;
+  align-items: center;
+  padding: 100px calc(10% - 20px) 0; 
+  grid-template-columns: 1fr 1fr; 
+  gap: 1rem;
+  border-radius: 40px;
+  box-shadow: 0 4px 8px rgba(27, 231, 231, 0.442);
+}
+
+.aboutme {
+  padding: 5rem 4rem;
+  /* text-align: center; */
+  background: pink;
+  border-radius: var(--itemBorderRadius);
+}
+
+.teks h1 {
+  font-size: 60px;
+  color: var(--warna7);
+}
+
+.teks h2 {
+  font-size: 60px;
+}
+
+.teks h2 span {
+  color: var(--warna);
+}
+
+.teks h4 {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--warna7);
+  line-height: 1.7;
+  margin: 15px 0 30px;
+}
+
+.teks p {
+  color: rgb(172, 47, 89);
+  font-size: 20px;
+  line-height: 1.4;
+  margin-bottom: 4rem;
+}
+
+/* ========== ABOUT ME ========== */
+
+/* Skills and Education */
+#skills {
+  padding: var(--sectionPadding);
+  background: var(--secondaryBackgroundColor);
+  background: var(--navbar);
+}
+
+.skills {
+  padding: 5rem 4rem;
+  /* text-align: center; */
+  background: pink;
+  border-radius: var(--itemBorderRadius);
+}
+
+.skills-grid {
+  display: grid;
+  /* grid-template-columns: 40% 60%; */
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 3rem;
+}
+
+.skills-right p{
+  color: rgb(172, 47, 89) ;
+}
+
+.education {
+  display: flex;
+  gap: 1rem;
+}
+
+.education .line {
+  padding: 0 0.7rem;
+}
+
+.education .line div {
+  width: 2px;
+  height: 100%;
+  background: var(--borderColor);
+  position: relative;
+}
+
+.education-info p {
+  margin: 0.6rem 0 1.4rem;
+}
+
+.education-years {
+  margin-bottom: 3rem;
+}
+
+/* ========== CERTIFICATE ========== */
+.sertifikat {
+    width: 100%;
+    height: 100%;
+    margin: 30px 30px 0 0;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-bottom: 10px;
+    grid-template-columns: repeat(3, minmax(auto, auto));
+    background: var(--navbar);
+    border-radius: 40px;
+    box-shadow: 0 4px 8px rgb(255, 255, 255);
+}
+
+.sertifikat {
+  padding: 3rem 2rem;
+  text-align: center;
+  background: pink;
+  border-radius: var(--itemBorderRadius);
+}
+
+.teks_utama {
+    background-color: linear-gradient(to right, #54369f , #060e64);
+    padding-top: 10px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-bottom: 50px;
+}
+
+.teks_utama h2 {
+    font-size: 40px;
+    line-height: 1;
+    text-align: center;
+}
+
+.teks_utama h2 span {
+    color: var(--warna);
+}
+
+.konten_projek {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(30px, auto));
+    gap: 10px;
+    margin: 30px 30px;
+}
+
+.baris {
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.baris img {
+    width: 90%;
+    border-radius: 8px;
+    display: block;
+    transition: transform .5s;
+}
+
+.lapisan {
+    width: 95%;
+    height: 0;
+    background: linear-gradient(rgba(255, 255, 255, 0.627), #fffffe);
+    position: absolute;
+    border-radius: 8px;
+    left: 0;
+    bottom: 0;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 0 40px;
+    transition: height .5s;
+}
+
+.lapisan h5 {
+    color: black;
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.lapisan p {
+    color: black;
+    font-size: 1rem;
+    line-height: 1.8;
+}
+
+.lapisan a {
+    text-decoration: none;
+}
+
+.lapisan i {
+    color: #ff004f;
+    margin-top: 20px;
+    font-size: 20px;
+    background: var(--warna);
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+}
+
+.baris:hover img {
+    transform: scale(1.1);
+}
+
+.baris:hover .lapisan {
+    height: 100%;
+}
+
+/* Contact Section */
+#contact {
+  padding: var(--sectionPadding);
+}
+.contact {
+  padding: 3rem 2rem;
+  /* text-align: center; */
+  background: pink;
+  border-radius: var(--itemBorderRadius);
+}
+
+.contact {
+  display: grid;
+  /* grid-template-columns: 1fr 1fr; */
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 3rem;
+}
+
+.contact-form div {
+  margin-bottom: 1.4rem;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 0.75rem 1.3rem;
+  font-family: "Roboto", sans-serif;
+  background: var(--secondaryBackgroundColor);
+  border: 1px solid var(--borderColor);
+  border-radius: 3px;
+  resize: none;
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+  color: #9d9fa1;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  outline: none;
+  border: 1px solid #7d7d7d;
+}
+
+.btn-submit {
+  width: 100%;
+  padding: 0.75rem 1.3rem;
+  background-color: palevioletred;
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: 0.2s ease-in-out;
+}
+
+.btn-submit:hover {
+  background-color: var(--primaryIconColorHover);
+}
+
+/* Contact Section - Right Side */
+.contact-item {
+  display: flex;
+  gap: 1.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.contact-item-icon {
+  background: var(--thirdBackgroundColor);
+  /* padding: 0.8rem 1rem; */
+  width: 53px;
+  height: 53px;
+  border-radius: 9px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.contact-item-icon svg {
+  fill: palevioletred;
+}
+
+.contact-item-detail h4 {
+  margin-bottom: 0.6rem;
+}
+
+/* Footer Section */
+footer {
+  padding: 4rem 0;
+  background: var(--secondaryBackgroundColor);
+  background: var(--navbar);
+  text-align: center;
+}
+
+.footer-icons {
+  margin-bottom: 1rem;
+}
+
+.footer-icons a {
+  margin: 0 0.5rem;
+}
+
+.footer-icons svg {
+  fill: #3e3f40;
+}
+
+.footer-icons a:hover svg {
+  fill: #000;
+}
